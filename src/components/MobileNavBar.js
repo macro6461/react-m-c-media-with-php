@@ -37,7 +37,7 @@ class MobileNavBar extends Component {
       <div className="mobile-nav-div">
       <div className="mobile-nav-bar">
         <img className="mobile-nav-hamburger" src={require('../images/MCMedia-Hamburger.png')} alt="hamburger"/>
-        <Link to="/" ><img className="mobile-nav-logo" src={require('../images/MCLogo.png')} alt="hamburger"/></Link>
+        <Link to="/" style={{marginRight: 20 + "px"}}><img className="mobile-nav-logo" src={require('../images/MCLogo.png')} alt="hamburger"/></Link>
         <Link to="/contact"><img className="mail-mobile" src={require('../images/mobile-mail-v1.png')} alt="Footer Mail"/></Link>
 
       </div>
