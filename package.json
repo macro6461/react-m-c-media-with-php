@@ -4,9 +4,11 @@
   "private": true,
   "homepage": "http://macro6461.github.io/react-m-c-media/",
   "dependencies": {
+    "axios": "^0.18.0",
     "browser-location": "^1.0.1",
     "gh-pages": "^1.1.0",
     "jquery": "^3.3.1",
+    "nodemailer": "^4.6.7",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-bootstrap-carousel": "^3.1.0",

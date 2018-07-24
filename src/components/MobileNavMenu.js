@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import '../App.css';
-import About from './About.js'
-import Photography from './Photography.js'
-import VideoProduction from './VideoProduction.js'
-import DropMenu from './DropMenu.js'
-import SoftwareEngineering from './SoftwareEngineering.js'
-import Contact from './Contact.js'
+// import About from './About.js'
+// import Photography from './Photography.js'
+// import VideoProduction from './VideoProduction.js'
+// import DropMenu from './DropMenu.js'
+// import SoftwareEngineering from './SoftwareEngineering.js'
+// import Contact from './Contact.js'
 import { connect } from 'react-redux'
 import { changeDropdown } from '../actions/actions'
 import { detectHamburgerClicked } from '../actions/actions'
@@ -13,9 +13,9 @@ import { detectHamburgerClicked } from '../actions/actions'
 import {
   withRouter,
   Link,
-  Route,
+  // Route,
 } from 'react-router-dom';
-import {browserLocation} from 'browser-location'
+// import {browserLocation} from 'browser-location'
 
 var icons;
 var medium;
@@ -29,8 +29,8 @@ class MobileNavMenu extends Component {
   }
 
   componentDidMount = () => {
+
     xButton = document.getElementsByClassName("mobile-x-button")[0]
-    xButton.addEventListener("click", this.slideOutMenuAndX)
     menu = document.getElementsByClassName("mobile-nav-menu")[0]
     var elements = document.getElementsByClassName("mobile-link")
     var aboutEl = document.getElementsByClassName("about-mobile-link")[0]
@@ -44,17 +44,19 @@ class MobileNavMenu extends Component {
   }
 
   slideOutMenuAndX = () => {
-    var clicked = this.props.detectHamburgerClicked
-    var hamburger = this.props.hamburgerClicked
-
     xButton.classList.add("reverse")
     setTimeout(function(){
       menu.classList.add("reverse")
     }, 300)
     setTimeout(function(){
 
-      clicked(!hamburger)
-  
+      menu.classList.remove("reverse")
+      xButton.classList.remove("reverse")
+      if (document.getElementsByClassName("mobile-nav-menu")[0].style.display === "" || document.getElementsByClassName("mobile-nav-menu")[0].style.display === "none" ){
+        document.getElementsByClassName("mobile-nav-menu")[0].style.display = "block"
+      } else {
+        document.getElementsByClassName("mobile-nav-menu")[0].style.display = "none"
+      }
     }, 1000)
 
   }
@@ -82,11 +84,10 @@ class MobileNavMenu extends Component {
 
   render() {
 
-
     return (
     <div>
       <div className="mobile-nav-menu">
-      <img className="mobile-x-button" src={require('../images/mobile-x-button.png')} alt="Footer Github"/>
+      <img className="mobile-x-button" src={require('../images/mobile-x-button.png')} alt="m-c-close" onClick={this.slideOutMenuAndX}/>
       <ul>
           <Link className="about-mobile-link" to="/"><li>About</li></Link>
           <Link className="mobile-link" to="/software-engineering"><li>Software Engineering</li></Link>
@@ -115,7 +116,6 @@ class MobileNavMenu extends Component {
 const mapStateToProps = (state) => {
   return {
     hovered: state.dropdownReducer.hovered,
-    hamburgerClicked: state.dropdownReducer.hamburgerClicked
   }
 }
 

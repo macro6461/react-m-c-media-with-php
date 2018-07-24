@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css';
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Link,
-  Route,
-  Switch,
+  // Route,
+  // Switch,
   withRouter,
 } from 'react-router-dom';
 import {connect} from 'react-redux'
 import Loader from './Loader.js'
 import DemosContainer from './demos/DemosContainer.js'
-import Demo from './demos/Demo.js'
+// import Demo from './demos/Demo.js'
 import {fetchYoutubeVideos} from '../actions/actions'
 
 class VideoProduction extends Component {

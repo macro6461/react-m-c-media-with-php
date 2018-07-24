@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import '../App.css';
 import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
+  // BrowserRouter as Router,
+  // Link,
+  // Route,
+  // Switch,
 } from 'react-router-dom';
 import $ from 'jquery';
-
+// import './index.php';
 class Contact extends Component {
 
   state = {
@@ -32,45 +33,36 @@ class Contact extends Component {
     this.setState({contactMessage: event.target.value})
   }
 
-  handleSubmit = (event) => {
+    handleSubmit = (event) => {
+    //   event.preventDefault()
+    //   $(".inquery-form .button").click(function() {
+    //     var data = {
+    //         name: $("#form_name").val(),
+    //         email: $("#form_email").val(),
+    //         message: $("#msg_text").val()
+    //     };
+    // $.ajax({
+    //     type: "POST",
+    //     url: "index.php",
+    //     data: data,
+    //     success: function(){
+    //         $('.success').fadeIn(1000);
+    //     }
+    // });
+    //
+    //     return false;
+    //   });
+    }
 
-    debugger
-
-    event.preventDefault();
-    this.setState({ type: 'info', message: 'Sending…' });
-
-
-
-    $.ajax({
-
-    url: './index.php',
-    type: 'POST',
-    data: {
-    "form_name": this.state.contactName,
-    "form_email": this.state.contactEmail,
-    "form_msg": this.state.contactMessage
-    },
-    cache: false,
-    success: function(data) {
-
-    // Success..
-    this.setState({ type: 'success', message: 'We have received your message and will get in touch shortly. Thanks!' });
-
-    }.bind(this),
-
-    error: function(xhr, status, err) {
-    this.setState({ type: 'danger', message: 'Sorry, there has been an error.  Please try again later or visit us at SZB 438.' });
-    }.bind(this)
-
-    });
-
-}
+      resetForm(){
+        document.getElementsByClassName('inquery-form')[0].reset();
+      }
 
   render() {
     return (
       <div>
         <h1>Contact</h1>
-        <form className="inquery-form" method="POST" action="index.php" onSubmit={this.handleSubmit}>
+        <form className="inquery-form" onSubmit={this.handleSubmit}>
           <label>Name:</label>
           <input type="text" id="name" name="name" required onChange={this.handleNameChange}/>
           <br/>
@@ -82,7 +74,7 @@ class Contact extends Component {
           <label>Message:</label><br/>
           <textarea className="inquery-message" type="text" id="message" name="message" required onChange={this.handleMessageChange}/>
           <br/><br/>
-          <input className="button" name="submit" type="submit" value="Send"/>
+          <button className="button" name="submit" type="submit">Submit</button>
         </form>
       </div>
     );

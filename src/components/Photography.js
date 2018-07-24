@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import '../App.css';
 import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
+  // BrowserRouter as Router,
+  // Link,
+  // Route,
+  // Switch,
   withRouter,
 } from 'react-router-dom';
-import $ from 'jquery';
-import { Carousel } from 'react-responsive-carousel';
-import { Item } from 'react-responsive-carousel';
+// import $ from 'jquery';
+// import { Carousel } from 'react-responsive-carousel';
+// import { Item } from 'react-responsive-carousel';
 
 var slideIndex = 1;
 
@@ -18,8 +18,13 @@ var myTimer;
 class Photography extends Component {
 
   componentDidMount = () => {
+    clearInterval(myTimer);
     this.showSlides(slideIndex);
     myTimer = setInterval(() => {this.plusSlides(1);}, 4000);
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(myTimer);
   }
 
 
@@ -28,18 +33,18 @@ class Photography extends Component {
  plusSlides = (n) => {
   clearInterval(myTimer);
   this.showSlides(slideIndex += n);
-  if (n = -1){
+  if (n === -1){
     myTimer = setInterval(() => {this.plusSlides(n + 2);}, 4000);
   } else {
     myTimer = setInterval(() => {this.plusSlides(n + 1);}, 4000);
   }
 }
 
-// Thumbnail image controls
+//Controls the current slide and resets interval if needed
 currentSlide = (n) => {
   clearInterval(myTimer);
   this.showSlides(slideIndex = n);
-  if (n = -1){
+  if (n === -1){
     myTimer = setInterval(() => {this.plusSlides(n + 2);}, 4000);
   } else {
     myTimer = setInterval(() => {this.plusSlides(n + 1);}, 4000);
@@ -77,38 +82,38 @@ showSlides = (n) => {
 
                     <div className="mySlides fade">
 
-                      <img  src={require('../images/web-crab-compressed.jpg')} style={{width: 100 + '%'}}/>
-                      <div className="text">Caption Text</div>
+                      <img  src={require('../images/web-crab-compressed.jpg')} style={{width: 100 + '%'}} alt="sally lightfoot crab"/>
+                      <div className="text">Sally Lightfoot Crab</div>
                     </div>
 
                     <div className="mySlides fade">
 
-                      <img  src={require('../images/web-fighting-nazcas.jpg')} style={{width: 100 + '%'}}/>
-                      <div className="text">Caption Two</div>
+                      <img  src={require('../images/web-fighting-nazcas.jpg')} style={{width: 100 + '%'}} alt="fighting nazca boobies"/>
+                      <div className="text">A scuffle between two Nazca Boobies</div>
                     </div>
 
                     <div className="mySlides fade">
 
-                      <img  src={require('../images/web-otovalo-waterfall.jpg')} style={{width: 100 + '%'}}/>
-                      <div className="text">Caption Three</div>
+                      <img  src={require('../images/web-otovalo-waterfall.jpg')} style={{width: 100 + '%'}} alt="otovalo waterfall"/>
+                      <div className="text">A waterfall discovered on a hike in Otovalo</div>
                     </div>
 
                     <div className="mySlides fade">
 
-                      <img  src={require('../images/web-pelican.jpg')} style={{width: 100 + '%'}}/>
-                      <div className="text">Caption Three</div>
+                      <img  src={require('../images/web-pelican.jpg')} style={{width: 100 + '%'}} alt="pelican"/>
+                      <div className="text">Pelican</div>
                     </div>
 
                     <div className="mySlides fade">
 
-                      <img  src={require('../images/web-nazca.jpg')} style={{width: 100 + '%'}}/>
-                      <div className="text">Caption Three</div>
+                      <img  src={require('../images/web-nazca.jpg')} style={{width: 100 + '%'}} alt="nazca booby"/>
+                      <div className="text">A Nazca Booby ignores a fly on it's eye</div>
                     </div>
 
                     <div className="mySlides fade">
 
-                      <img  src={require('../images/web-sealion.jpg')} style={{width: 100 + '%'}}/>
-                      <div className="text">Caption Three</div>
+                      <img  src={require('../images/web-sealion.jpg')} style={{width: 100 + '%'}} alt="sealion pup"/>
+                      <div className="text">Sealion Pup</div>
                     </div>
 
 

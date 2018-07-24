@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import '../App.css';
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Link,
-  Route,
-  Switch,
+  // Route,
+  // Switch,
   withRouter
 } from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -20,7 +20,7 @@ class About extends Component {
         : <div>
             <h1>About</h1>
             <div className="about">
-              <img src={require('../images/profile-pic.png')}/>
+              <img src={require('../images/profile-pic.png')} alt="matt croak profile"/>
               <div>
                 <p>
                   I am a software engineer, a problem-solver, with a passion for travel and multimedia production. I pride myself on efficiency and effectivenes. Currently a Web Developer and the IT Director for Bohemia Realty Group, I am constantly refining and expanding my skillset. I am a self starter who can thrive in both individual and collaborative/team based working environments.

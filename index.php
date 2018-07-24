@@ -1,4 +1,19 @@
 <?php
+
+if($_POST){
+    $name = $_POST['form_name'];
+    $email = $_POST['form_email'];
+    $message = $_POST['form_msg'];
+
+//send email
+    mail("mattcroak718@gmail.com", "This is an email from:" .$email, $message);
+}
+?>
+
+<!-- if(isset($_POST['submit'])) {
+  exit();
+}
+
 // Import PHPMailer classes into the global namespace
 // These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -9,8 +24,6 @@ require 'vendor/autoload.php';
 
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 
-
-
 try {
     //Server settings
     $contact_email = $_POST['email'];
@@ -19,12 +32,11 @@ try {
     $contact_phone = $_POST['phone'];
     $contact_message = $_POST['inquery-message']
 
-    print_r($_POST);
     exit();
 
   $mail->IsSMTP(); // telling the class to use SMTP
   $mail->Host = "smtp.gmail.com"; // SMTP server
-  $mail->SMTPDebug = 2;                     // enables SMTP debug information (for testing) // 1 = errors and messages // 2 = messages only
+  $mail->SMTPDebug = 3;                     // enables SMTP debug information (for testing) // 1 = errors and messages // 2 = messages only
   $mail->SMTPSecure = 'tls';
   $mail->SMTPAuth = true;                  // enable SMTP authentication
   $mail->Port = 587; // set the SMTP port for the GMAIL server
@@ -39,14 +51,14 @@ try {
     $mail->addCC($contact_email);
 
     $mail->smtpConnect(
-      array(
+    array(
         "ssl" => array(
             "verify_peer" => false,
             "verify_peer_name" => false,
             "allow_self_signed" => true
         )
-      )
-    );
+    )
+);
 
     // //Attachments
     // $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
@@ -71,7 +83,8 @@ STARTEMAIL;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-}
+    if(!$mail->send()){
+      echo "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+      echo "Message has been sent successfully";
+    } -->

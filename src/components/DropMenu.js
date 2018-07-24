@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import '../App.css';
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Link,
-  Route,
-  Switch,
+  // Route,
+  // Switch,
   withRouter
 } from 'react-router-dom';
-import Photography from './Photography.js'
-import VideoProduction from './VideoProduction.js'
+// import Photography from './Photography.js'
+// import VideoProduction from './VideoProduction.js'
 
 class DropMenu extends Component {
 

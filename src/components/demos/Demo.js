@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player'
 import '../../App.css';
 import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
+  // BrowserRouter as Router,
+  // Link,
+  // Route,
+  // Switch,
   withRouter,
 } from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -13,10 +13,10 @@ import Loader from '../Loader.js'
 import $ from 'jquery';
 
 
-var checkAgain;
-var tag;
-var player;
-var firstScriptTag;
+// var checkAgain;
+// var tag;
+// var player;
+// var firstScriptTag;
 
 
 class Demo extends Component {
@@ -24,27 +24,13 @@ class Demo extends Component {
 state = {
   loaded: false
 }
-  componentDidMount = () => {
 
-    console.log(this.state.loaded)
-
-  }
-
-checkIframeLoaded = () => {
-
-  $.ajax({
-    url: this.props.demo.url,
-    success: this.successState(),
-    error: this.errorState()
-  });
-}
 
   successState = () => {
-    console.log(this.state)
+
     this.setState({
       loaded: true
     })
-
   }
 
   errorState = () => {
@@ -96,12 +82,12 @@ checkIframeLoaded = () => {
     }
   }
 
-  checkAgain = () => {
-
-    if (this.state.loaded === false){
-      this.checkIframeLoaded()
-    }
-  }
+  // checkAgain = () => {
+  //
+  //   if (this.state.loaded === false){
+  //     this.checkIframeLoaded()
+  //   }
+  // }
 
 
 
@@ -111,9 +97,11 @@ checkIframeLoaded = () => {
     var back = this.checkBackendRepos()
     var live = this.checkLiveUrl()
     var languages = this.checkLanguages()
-    var border = 'solid 1px black'
+    // var border = 'solid 1px black'
 
      console.log("demo rendered")
+
+
     return (
       <div style={{display: 'inline-block', margin: 3 + '%'}}>
         <h2> {this.props.demo.title} </h2>
@@ -128,7 +116,7 @@ checkIframeLoaded = () => {
           display="initial"
           position="relative"
           width='auto'
-          height='auto'
+          height='600px'
           style={{display: 'block', margin: 'auto'}}
           allowFullScreen/>
         <div className="text-for-demo">

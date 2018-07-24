@@ -3,23 +3,23 @@ import '../App.css';
 import About from './About.js'
 import Photography from './Photography.js'
 import VideoProduction from './VideoProduction.js'
-import DropMenu from './DropMenu.js'
+// import DropMenu from './DropMenu.js'
 import SoftwareEngineering from './SoftwareEngineering.js'
 import Contact from './Contact.js'
-import { connect } from 'react-redux'
-import { changeDropdown } from '../actions/actions'
+// import { connect } from 'react-redux'
+// import { changeDropdown } from '../actions/actions'
 
 import {
   withRouter,
   Link,
   Route,
 } from 'react-router-dom';
-import {browserLocation} from 'browser-location'
+// import {browserLocation} from 'browser-location'
 
 var navBar;
 var navTop;
-var dropMenu;
-var setTimeoutVar;
+// var dropMenu;
+// var setTimeoutVar;
 
 class Nav extends Component {
 
@@ -99,7 +99,7 @@ class Nav extends Component {
 
   checkMouseLeave = (e) => {
     debugger
-      var drop = e.target
+      var drop = document.getElementById("drop-menu")
       if (e.pageX < drop.getBoundingClientRect().left) {
         this.removeDropClass()
       } else if (e.pageY < drop.getBoundingClientRect().top){
@@ -127,10 +127,13 @@ class Nav extends Component {
   }
 
   removeDropClass = () =>{
-    if (document.getElementById("drop-menu")){
-      document.getElementById("drop-menu").classList = ""
-      document.getElementById("drop-menu").classList.add("reverse")
-    }
+    setTimeout(function(){
+      if (document.getElementById("drop-menu")){
+        document.getElementById("drop-menu").classList = ""
+        document.getElementById("drop-menu").classList.add("reverse")
+      }
+    }, 300)
+
   }
 
   render() {

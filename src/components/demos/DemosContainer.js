@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import '../../App.css';
 import Demo from './Demo.js'
 import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
+  // BrowserRouter as Router,
+  // Link,
+  // Route,
+  // Switch,
   withRouter,
 } from 'react-router-dom';
 

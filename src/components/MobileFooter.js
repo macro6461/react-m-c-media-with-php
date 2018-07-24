@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 import '../App.css';
-import About from './About.js'
-import Photography from './Photography.js'
-import VideoProduction from './VideoProduction.js'
-import DropMenu from './DropMenu.js'
-import SoftwareEngineering from './SoftwareEngineering.js'
-import Contact from './Contact.js'
+// import About from './About.js'
+// import Photography from './Photography.js'
+// import VideoProduction from './VideoProduction.js'
+// import DropMenu from './DropMenu.js'
+// import SoftwareEngineering from './SoftwareEngineering.js'
+// import Contact from './Contact.js'
 import { connect } from 'react-redux'
 import { changeDropdown } from '../actions/actions'
 
 import {
   withRouter,
   Link,
-  Route,
+  // Route,
 } from 'react-router-dom';
-import {browserLocation} from 'browser-location'
+// import {browserLocation} from 'browser-location'
 
 class MobileFooter extends Component {
 
@@ -46,8 +46,8 @@ class MobileFooter extends Component {
   }
 
     revealIcons = () => {
-      var footTop = document.getElementsByClassName("FooterDiv")[0].getBoundingClientRect().top
-      var ypos = window.pageYOffset
+      // var footTop = document.getElementsByClassName("FooterDiv")[0].getBoundingClientRect().top
+      // var ypos = window.pageYOffset
       var icons = document.getElementsByClassName("footer_social")
       var medium = document.getElementsByClassName("footer_social_medium")[0]
       if (window.innerHeight > document.getElementsByClassName("FooterDiv")[0].getBoundingClientRect().top){
